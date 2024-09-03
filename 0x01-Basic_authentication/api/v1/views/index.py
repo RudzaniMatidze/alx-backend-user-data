@@ -35,8 +35,8 @@ def unauthorized() -> None:
     abort(401)
 
 
-@app_views.route('/foridden/', strict_slashes=False)
-def foridden() -> None:
+@app_views.route('/forbidden/', strict_slashes=False)
+def forbidden() -> None:
     """ Get /api/v1/forbidden
     Return:
       - foridden error.
