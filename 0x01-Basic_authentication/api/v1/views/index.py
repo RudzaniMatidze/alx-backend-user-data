@@ -33,3 +33,12 @@ def unauthorized() -> None:
       - Unauthorized error
     """
     abort(401)
+
+
+@app_views.route('/foridden/', strict_slashes=False)
+def foridden() -> None:
+    """ Get /api/v1/forbidden
+    Return:
+      - foridden error.
+    """
+    abort(403)
