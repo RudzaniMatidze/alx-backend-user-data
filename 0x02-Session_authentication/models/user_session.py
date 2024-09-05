@@ -8,7 +8,7 @@ class UserSession(Base):
     """User session Class
     """
 
-    def __init__(self, *args:list, **kwargs: dict):
+    def __init__(self, *args: list, **kwargs: dict):
         """Initializes a User session instance
         """
         super.__init__(*args, **kwargs)
