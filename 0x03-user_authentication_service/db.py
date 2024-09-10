@@ -32,7 +32,7 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    def add_user(self, email:str, hashed_password: str) -> User:
+    def add_user(self, email: str, hashed_password: str) -> User:
         """Adds a new user to the database
         """
         try:
@@ -48,10 +48,10 @@ class DB:
         """Finds a user based on s set f filters.
         """
         fields. values = [], []
-        for key, value in kwargs,item():
+        for key, value in kwargs, item():
             if hasattr(User, key):
                 fields.append(getattr(User, key))
-                values,append(value)
+                values, append(value)
             else:
                 raise InvalidRequestError()
             result = self._session.quety(User).filter(
