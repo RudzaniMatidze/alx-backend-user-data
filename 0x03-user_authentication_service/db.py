@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """DB module
 """
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, tuple_
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
@@ -21,14 +21,14 @@ class DB:
         self._engine = create_engine("sqlite:///a.db", echo=True)
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
-        self.session = None
+        self.__session = None
 
     @property
     def _session(self) -> Session:
         """Memoized session object
         """
         if self.__session is None:
-            DBSession = sessionmaker(bind=self.-engine)
+            DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
         return self.__session
 
